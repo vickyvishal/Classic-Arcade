@@ -16,7 +16,6 @@ var Enemy = function(x,y) {
 	this.y = y;
 
 	// Set the speed multipler for the enemy using a random
-	// number between 1 & 5
 	this.multiplier = Math.floor((Math.random() * 3) + 1);
 
 };
@@ -25,8 +24,8 @@ var Enemy = function(x,y) {
 Enemy.prototype.update = function(dt) {
 
 	// Set the position of the enemy based on dt and the speed multipler
-	// 101, the position of left most block
-	this.x = this.x + 101 * dt * this.multiplier;
+	// 120, a speed constant. Increase it to increase the speed
+	this.x = this.x + 120 * dt * this.multiplier;
 
 	// Check for collisions with the player
 	if (this.y == player.y && (this.x > player.x - 20 && this.x < player.x + 20)) {
