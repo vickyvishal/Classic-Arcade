@@ -4,7 +4,7 @@ var Game = function() {
 	this.gameOver = false;
 	this.gameWin = false;
 };
-
+// Enemy update and player update inspired from https://github.com/ToniRib/frontend-nanodegree-arcade-game.
 // Enemies our player must avoid
 var Enemy = function(x,y) {
 
@@ -46,8 +46,8 @@ Enemy.prototype.update = function(dt) {
 // Reset the enemy to the left of the board with a new y position
 // and a new speed multiplier
 Enemy.prototype.reset = function() {
-	this.x = -200;
-	var ynew = [220, 140, 60];
+	this.x = -100;//reset to the left of the canvas
+	var ynew = [220, 140, 60];//once enemy reaches the right end of the canvas, it needs to reset in the following y-position
 	this.y = ynew[Math.floor((Math.random() * 3))];
 	this.multiplier = Math.floor((Math.random() * 5) + 1);
 };
