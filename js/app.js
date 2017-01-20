@@ -25,6 +25,7 @@ var Enemy = function(x,y) {
 Enemy.prototype.update = function(dt) {
 
 	// Set the position of the enemy based on dt and the speed multipler
+	// 101, the position of left most block
 	this.x = this.x + 101 * dt * this.multiplier;
 
 	// Check for collisions with the player
@@ -86,6 +87,7 @@ var Player = function(x,y) {
 Player.prototype.handleInput = function(dir) {
 
 	// Change the player's position based on the user keyboard input
+	//x changes by 101 and y changes by 80 to match the stones dimension
 	if (dir == 'up') {
 		this.y = this.y - 80;
 	} else if (dir == 'down') {
@@ -110,9 +112,8 @@ Player.prototype.handleInput = function(dir) {
 	}	else if (this.y > 404) {
 		this.reset();
 
-	} else if (this.y <= -20 && this.x > 0 && this.x < 606) {
-		// Player has made it to the top blocks
-		if (this.x > 101 && this.x < 606){
+	} else if (this.y <= -20 && this.x > 0 && this.x < 606) {// Player has made it to the top blocks
+		if (this.x > 101 && this.x < 606){ //Player is not in the water block
 		// Check to see if the player has won the game
 		var win = true
 				// Player has reached the destination
@@ -126,7 +127,7 @@ Player.prototype.handleInput = function(dir) {
 			game.gameWin = true;
 		}
 
-		// Reset the player to her original location & image
+		// Reset the player to the original location & image
 		this.reset();
 
 	} else if (this.y <= -20 && (this.x === 0 || this.x === 606)) {
@@ -145,9 +146,10 @@ Player.prototype.handleInput = function(dir) {
 	}
 };
 
-// Reset the player to her original position & image
+// Reset the player to the original position & image
 Player.prototype.reset = function() {
 	// Reset the player to the original position
+	//xo, yo has the original position value as described in Player function
 	this.x = this.xo;
 	this.y = this.yo;
 
