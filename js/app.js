@@ -96,16 +96,14 @@ Player.prototype.handleInput = function(dir) {
 		// Player is off to the right side of the board, move the player
 		// back to the right-most square (606)
 		this.x = 606;
-	}else if (this.y > 404) {
+	} else if (this.y > 404) {
 		this.reset();
 	} else if (this.y <= -20 && this.x > 0 && this.x < 606) {// Player has made it to the top blocks
 		if (this.x > 101 && this.x < 606){ //Player is not in the water block
 		// Check to see if the player has won the game
-		var win = true
-				// Player has reached the destination
+		var win = true;// Player has reached the destination
 			} else {
-				// Set the win flag to false
-				win = false;
+			win = false;// Set the win flag to false
 			}
 
 		// If the player has won, display the game winning image
