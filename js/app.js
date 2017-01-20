@@ -53,8 +53,8 @@ Enemy.prototype.update = function(dt) {
 // and a new speed multiplier
 Enemy.prototype.reset = function() {
 	this.x = -200;
-	var yVals = [220, 140, 60];
-	this.y = yVals[Math.floor((Math.random() * 3))];
+	var ynew = [220, 140, 60];
+	this.y = ynew[Math.floor((Math.random() * 3))];
 	this.multiplier = Math.floor((Math.random() * 5) + 1);
 };
 
@@ -193,7 +193,7 @@ document.addEventListener('keyup', function(e) {
 // enemy objects
 var allEnemies = [];
 // Set a varaiable for the possible y values
-var yVals = [220, 140, 60];
+var ynew = [220, 140, 60];
 
 // Create the separate enemy instances
 for (var i = 0; i < 5; i++) {
@@ -203,7 +203,7 @@ for (var i = 0; i < 5; i++) {
 
 	// Set a starting y-position based on a random selection
 	// of the 3 possible values
-	var y = yVals[Math.floor(Math.random() * 3)];
+	var y = ynew[Math.floor(Math.random() * 3)];
 
 	// Create the new enemy object
 	var enemy = new Enemy(x, y);
