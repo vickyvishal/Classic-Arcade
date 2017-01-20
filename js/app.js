@@ -152,7 +152,7 @@ Player.prototype.reset = function() {
 	this.y = this.yo;
 
 	// Reset the image
-	this.sprite = 'images/char-cat-girl.png';
+	this.sprite = 'images/char-boy.png';
 };
 
 // Update the player's position
