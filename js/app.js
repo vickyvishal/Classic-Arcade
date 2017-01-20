@@ -87,7 +87,7 @@ var Player = function(x,y) {
 Player.prototype.handleInput = function(dir) {
 
 	// Change the player's position based on the user keyboard input
-	//x changes by 101 and y changes by 80 to match the stones dimension
+	//x changes by 101 and y changes by 80 to match the block dimensions
 	if (dir == 'up') {
 		this.y = this.y - 80;
 	} else if (dir == 'down') {
