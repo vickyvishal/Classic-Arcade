@@ -22,27 +22,21 @@ var Enemy = function(x,y) {
 
 // Update the enemy's position and check for collisions
 Enemy.prototype.update = function(dt) {
-
 	// Set the position of the enemy based on dt and the speed multipler
 	// 120, a speed constant. Increase it to increase the speed
 	this.x = this.x + 120 * dt * this.multiplier;
-
 	// Check for collisions with the player
 	if (this.y == player.y && (this.x > player.x - 20 && this.x < player.x + 20)) {
-
 		// Player has encountered an emeny and thus loses one life
 		player.lives--;
 		document.getElementsByClassName('lives')[0].innerHTML = 'Lives: ' + player.lives;
-
 		// Check to see if the player has any lives left
 		if (player.lives === 0) {
 			// Player is out of lives, show the game over image
 			game.gameOver = true;
-
 		} 
 		player.reset();
 		}
-
 	// If the enemy goes off of the board, reset it
 	if (this.x > 750) {
 		this.reset();
@@ -67,24 +61,19 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function(x,y) {
-
 	// Set the player image
 	this.sprite = 'images/char-boy.png';
-
 	// Set the player's location
 	this.x = x;
 	this.y = y;
-
 	// Give the player 5 lives to start
 	this.lives = 5;
-
 	// Store the original position of the player for resetting later
 	this.xo = x;
 	this.yo = y;
 };
 
 Player.prototype.handleInput = function(dir) {
-
 	// Change the player's position based on the user keyboard input
 	//x changes by 101 and y changes by 80 to match the block dimensions
 	if (dir == 'up') {
@@ -107,10 +96,8 @@ Player.prototype.handleInput = function(dir) {
 		// Player is off to the right side of the board, move the player
 		// back to the right-most square (606)
 		this.x = 606;
-		
-	}	else if (this.y > 404) {
+	}else if (this.y > 404) {
 		this.reset();
-
 	} else if (this.y <= -20 && this.x > 0 && this.x < 606) {// Player has made it to the top blocks
 		if (this.x > 101 && this.x < 606){ //Player is not in the water block
 		// Check to see if the player has won the game
@@ -125,13 +112,10 @@ Player.prototype.handleInput = function(dir) {
 		if (win) {
 			game.gameWin = true;
 		}
-
 		// Reset the player to the original location & image
 		this.reset();
-
 	} else if (this.y <= -20 && (this.x === 0 || this.x === 606)) {
 		// Player made it to one of the two water blocks
-
 		// Lose a life and reset the player
 		this.lives--;
 		if (this.lives === 0) {
@@ -151,7 +135,6 @@ Player.prototype.reset = function() {
 	//xo, yo has the original position value as described in Player function
 	this.x = this.xo;
 	this.y = this.yo;
-
 	// Reset the image
 	this.sprite = 'images/char-boy.png';
 };
@@ -167,15 +150,9 @@ Player.prototype.render = function() {
 	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-
-
-
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
-
-
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
@@ -194,20 +171,15 @@ document.addEventListener('keyup', function(e) {
 var allEnemies = [];
 // Set a varaiable for the possible y values
 var ynew = [220, 140, 60];
-
 // Create the separate enemy instances
 for (var i = 0; i < 5; i++) {
-
 	// Set a starting x-position based on a random value
 	var x = Math.floor((Math.random() * -1000) + 1);
-
 	// Set a starting y-position based on a random selection
 	// of the 3 possible values
 	var y = ynew[Math.floor(Math.random() * 3)];
-
 	// Create the new enemy object
 	var enemy = new Enemy(x, y);
-
 	// Push the enemy into the array
 	allEnemies.push(enemy);
 }
