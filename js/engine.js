@@ -128,11 +128,11 @@ var Engine = (function(global) {
             ],
             topRowImages = [
                 'images/water-block.png',   // top row has special images
-                'images/stone-block-red.png',
                 'images/stone-block-orange.png',
-                'images/stone-block-green.png',
-                'images/stone-block-blue.png',
-                'images/stone-block-purple.png',
+                'images/stone-block-orange.png',
+                'images/stone-block-orange.png',
+                'images/stone-block-orange.png',
+                'images/stone-block-orange.png',
                 'images/water-block.png'
             ],
             numRows = 6,
