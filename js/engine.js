@@ -202,11 +202,7 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/stone-block-blue.png',
-        'images/stone-block-green.png',
         'images/stone-block-orange.png',
-        'images/stone-block-red.png',
-        'images/stone-block-purple.png',
         'images/char-boy.png',
         'images/game-over.svg',
         'images/win-game.svg'
