@@ -68,7 +68,7 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 var Player = function(x,y) {
 
-	// Set the player to the girl in the cat hat image
+	// Set the player image
 	this.sprite = 'images/char-boy.png';
 
 	// Set the player's location
